@@ -1,0 +1,288 @@
+*{   
+    box-sizing: border-box;     /* asteristico * serve pra falar que vai pegar o codigo todo*/ /*<!--borda da tela;*/
+    margin: 0;                  /*<!--margem*/
+    padding: 0;                 /*<!-- n ficar torto*/
+    font-family: 'Times New Roman', Times, serif;   /*<!--fonte do texto*/ 
+                                /*tudo isso pra ficar tudo em ordem*/
+}     
+ 
+.navbar{     /*dentro do body no html/menu de cima*/
+    background: #131313;       /*cor de fundo*/
+    height: 80px;                /*altura*/
+    display: flex;
+    justify-content: center;     /*justificar conteudo*/
+    align-items: center;         /*alinhar itens*/
+    font-size: 1rem;             /*tamanho da fonte*/
+    position: sticky;            /*posicao: espesso*/
+    top: 0;                      /*topo*/
+    z-index: 999;
+}
+
+
+.navbar_container{       /*menu*/ 
+    display:flex;
+    justify-content: space-between; /*justificar conteudo*/
+    height: 80px;         /*altura*/
+    width: 100%;          /*largura*/
+    max-width: 1300px;    /*largura maxima*/
+    margin-right: auto;   /*margem direita*/
+    margin-left: auto;    /*margem esquerda*/
+    padding-right: 50px;  /*preenchimento direito*/
+    padding-left: 50px;   /*preenchimento esquerdo*/
+}
+
+
+#navbar_logo{  /*texto principal (titulo "NFT")*/
+    color: rgba(0, 0, 0, 0.986); /*cor do titulo*/
+    display: flex;
+    align-items: center;   /*alinhar itens*/
+    cursor: pointer;      /*cursor do mouse*/
+    text-decoration: none; /*decoracao de texto*/
+    font-size: 3.7rem;   /*tamanho do titulo*/
+    text-shadow:         /*fazer titulo"NFT" ficar neon*/
+    0 0 5px rgb(23, 245, 197),
+    0 0 10px rgb(13, 243, 193),
+    0 0 20px rgb(35, 212, 174),
+    0 0 40px rgb(0, 245, 188),
+    0 0 80px rgb(93, 170, 153),
+    0 0 90px rgb(67, 214, 182),
+    0 0 100px rgb(0, 0, 0),
+    0 0 150px rgb(0, 0, 0);
+}
+
+
+.navbar_menu{ /*infos do menu de cima (home,explore,gallery)*/
+    display: flex;
+    align-items: center; /*alinhar itens*/
+    list-style: none; /*estilo de lista*/
+    text-align: center; /*alinhar texto*/
+}
+
+.navbar_item{ /*itens do menu de cima (tirando o sign up*/
+    height: 80px; /*altura*/
+}
+
+.navbar_links{ /*infos (home,explore,gallery)*/
+    color:rgb(255, 255, 255); /*cor dos textos*/
+    display:flex; 
+    align-items: center; /*alinhar itens*/
+    justify-content: center; /*justificar conteudo*/
+    text-decoration: none; /*decoracao de texto*/
+    padding: 0 1rem; /*preenchimento*/
+    height: 100%; /*altura*/
+}
+
+.navbar_btn{ /*botao do menu (sign up)*/
+    display: flex;
+    justify-content: center;  /*justificar conteudo*/
+    align-items: center; /*alinhar itens*/
+    padding: 0 1rem; /*preenchimento*/
+    width: 100%; /*largura*/
+}
+
+
+.button{    /*botao menu*/
+display:flex;
+justify-content: center;  /*justificar conteudo*/
+align-items: center;  /*alinhar itens*/
+text-decoration: none;  /*decoracao de texto*/
+padding: 10px 20px;  /*preenchimento*/
+height: 100%;  /*altura*/
+width: 100%;  /*largura*/
+border: none; /*borda*/
+outline: none; /*contorno*/
+border-radius: 4px; /*raio da borda(arredondar..)*/
+background: rgb(211, 247, 238); /*cor de fundo*/
+color:#000000; /*cor do texto*/
+}
+
+/*hover, faz o efeito de cor ao clicar mouse sobre o botao (sign up)*/
+.button:hover{
+    background: rgb(51, 233, 178);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.navbar_links:hover{ /*hover, faz o efeito de cor ao clicar mouse sobre os escritos (home, gallery..)*/
+    color: rgb(19, 255, 223);
+    transition: all 0.3s ease;
+}
+
+/*tela*/
+@media screen and (max-width: 960px){
+     .navbar_container{ /*replicar body inteiro*/ /*faixa de menu*/
+     display: flex;
+     justify-content: space-between;
+     height: 80px;
+     width: 100%;
+     z-index: 1;
+     max-width: 1300px;
+     padding: 0;
+    }
+
+    #navbar_logo{
+        padding-left: 25px;
+    }
+
+    .navbar_menu{
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        top: -1000px;
+        opacity: 1;
+        transition: all 0.5s ease;
+        height: 50vh;
+        z-index: -1;
+    }
+
+     .navbar_menu.active{ /*menu sanduiche*/
+         background:#000000;
+         top: 100%;
+         opacity: 1;
+         transition: all 0.5s ease;
+         z-index: 99s;
+         height: 50vh;
+         font-size: 1.6rem;
+     }
+
+     .navbar_toggle.bar{
+         width: 25px;
+         height: 3px;
+         margin: 5px auto;
+         transition: all 0.3s ease-in-out;
+         background: #fff;
+     }
+
+     .navbar_item{
+         width: 100%;
+     }
+
+     .navbar_links{
+         text-align: center;
+         padding: 2rem;
+         width: 100%;
+         display: table;
+     }
+
+     .button{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 80%;
+         height: 80px;
+         margin: 0;
+     }
+
+     .navbar_toggle.bar{
+         display: block;
+         cursor: pointer;
+     }
+
+     #mobile-menu{
+         position: absolute;
+         top: 20%;
+         right: 5%;
+         transform: translate(5%, 20%);
+     }
+
+     #mobile-menu.is-active .bar:nth-child(2){
+         opacity: 0;
+     }
+
+     #mobile-menu.is-active .bar:nth-child(1){
+         transform: translateY(8px) rotate(45deg);
+     }
+
+     #mobile-menu.is-active .bar:nth-child(3){
+         transform: translateY(-8px) rotate(-45deg);
+     }
+}
+
+/*HERO MENU*/ 
+
+.main{ /*fundo da tela/body*/
+    background-color: #000000;
+}
+
+.main_container{  /*fundo do site (textos, imgs)*/
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center; /*alinhar itens*/
+    justify-self: center; /*se justificar*/
+    margin: 0 auto; /*margem*/
+    height: 90vh; /*altura*/
+    background-color: #000000; /*cor de fundo*/
+    z-index: 1;
+    width: 100%; /*largura*/
+    max-width: 1300px;
+    padding-right: 50px; /*preencher direito*/
+    padding-left: 50px; /*preencher esquerdo*/
+}
+
+.main_content{ /*textos <h1> e <p>*/
+    width: 100%; /*largura*/
+}
+
+.main_content h1{ /*texto (join the..)*/
+    font-size: 3.5rem; /*tamanho da fonte*/
+    color:rgba(255, 255, 255, 0.815); /*cor do texto*/
+}
+
+.text-highlight{ /*segunda parte do texto (movement and unlock)*/
+    color: rgb(129, 230, 191); /*cor do texto*/
+}
+
+.main_content p{ /*texto (discover..)*/
+    font-size: 2.3rem; /*tamanho da fonte*/
+    margin-top: 7px; /*margem superior*/
+    font-weight: 100; /*espessura da fonte*/
+    color:rgb(196, 233, 230); /*cor do texto*/
+}
+
+.main_btn{ /*botao clicavel pra ver colacao(collecion)*/
+    font-size: 1.2rem; /*tamanho do texto*/
+    padding: 14px 32px; /*preenchimento*/
+    background: rgb(55, 146, 108); /*cor do fundo do botao*/
+    border: none; /*borda/sombra*/
+    border-radius: 4px; /*raio da borda*/
+    margin-top: 2rem; /*margem superior*/
+    cursor: pointer; /*cursor do mouse*/
+    position: relative; /*posicao:correspondente*/
+    transition: all 0.35s; /*transicao*/
+    outline: none; /*contorno*/
+}
+
+.main_btn a{ /*titulo do botao de colecao*/
+position: relative; /*posicao:correspondente*/
+z-index: 2;
+color: rgb(0, 0, 0); /*cor do texto*/
+text-decoration: none; /*decoracao de texto*/
+}
+
+.main_btn:after{  
+    position: absolute;
+    content: '' ;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgb(255, 255, 255);
+    transition: all 0.35s;
+    border-radius: 4px;
+}
+
+.main_btn:hover:after{
+    width: 100%;
+}
+
+.main_img--container{
+    text-align: center; /*posicao da imagem em relacao aos textos ao lado dela (centro/meio)*/
+}
+
+#main_img{ /*proporcoes da img*/
+    height: 425px; /*altura*/
+    width: 400px; /*largura*/
+    border-radius: 20px; /*borda (quanto maior o px + redonda a borda fica*/
+}
